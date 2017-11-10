@@ -1,0 +1,22 @@
+<h3 style="text-align:center">Enter the Code sent to you at the time of registration!</h3>
+<hr>
+<div class="row">
+  <div class="col-sm-4">
+  </div>
+  <div class="col-sm-2">
+    <input type="text" class="form-control input-sm" placeholder="Enter Your Code" [(ngModel)]="code">
+  </div>
+  <div class="col-sm-1">
+    <button class="btn btn-info" (click)="verification()">
+      <span class="glyphicon glyphicon-pencil"></span>Verify Me!
+</button>
+
+  </div>
+  <div class="col-sm-3">
+    <button class="btn btn-info" routerLinkActive="active" routerLink=''>
+        <span class="glyphicon"></span>Go to Home Screen!
+  </button>
+  </div>
+  <div class="col-sm-2">
+  </div>
+</div>

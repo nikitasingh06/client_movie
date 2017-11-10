@@ -1,0 +1,148 @@
+<app-header-login></app-header-login>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-3"></div>
+    <div class="col-sm-6">
+      <h1 style="text-align:center"> Welcome User</h1>
+    </div>
+    <div class="col-sm-3">
+      <input type="text" [(ngModel)]="search">Search
+    </div>
+  </div>
+  <br>
+  <br>
+  <br>
+  <div class="row">
+    <div class="col-sm-3" id="buttons">
+      <button class="btn btn-outline-primary" (click)="searchSeries()">Search Series</button>
+    </div>
+    <div class="col-sm-3" id="buttons">
+      <button class="btn btn-outline-primary" (click)="searchSeason()">Search Season</button>
+    </div>
+    <div class="col-sm-3" id="buttons">
+      <button class="btn btn-outline-primary" (click)="searchEpisode()">Search Episode</button>
+    </div>
+    <div class="col-sm-3" id="buttons">
+      <button class="btn btn-outline-primary" (click)="searchMovies()">Search Movies</button>
+    </div>
+  </div>
+
+  <div class="row">
+    <br>
+    <br>
+    <div class="col-sm-4" id="buttons">
+      <button class="btn btn-outline-primary" (click)="showSeries()">Show Series</button>
+    </div>
+    <div class="col-sm-4" id="buttons">
+      <button class="btn btn-outline-primary" (click)="showSesaons()">Show Seasons</button>
+    </div>
+    <div class="col-sm-4" id="buttons">
+      <button class="btn btn-outline-primary" (click)="showComics()">Show Comics</button>
+    </div>
+  </div>
+
+  <div *ngIf="searchedMovies">
+    <h3 style="text-align:center">Movies</h3>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Image</th>
+          <th>Movie Name</th>
+          <th>Category</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>{{searchedMovies.image}}</td>
+          <td>{{searchedMovies.name}}</td>
+          <td>{{searchedMovies.description}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div *ngIf="searchedSeries">
+      <h3 style="text-align:center">Series</h3>
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Series Name</th>
+            <th>Description</th>
+            <th>Creator</th>
+            <th>Created date</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>{{searchedSeries.name}}</td>
+            <td>{{searchedSeries.description}}</td>
+            <td>{{searchedSeries.createdby}}</td>
+            <td>{{searchedSeries.createddate}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+  <div *ngIf="comics">
+    <h3 style="text-align:center">Comics</h3>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Image</th>
+          <th>Comic Name</th>
+          <th>Story</th>
+          <th>Created date</th>
+          <!-- <th>Updated date</th> -->
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let c of comics">
+          <td>
+            <img src={{c.image}} style="height:30px; width:50px;">
+          </td>
+          <td>{{c.name}}</td>
+          <td>{{c.story}}</td>
+          <td>{{c.createddate}}</td>
+          <!-- <td>{{c.updatedate}}</td> -->
+          <!-- <button (click)="comment(c._id)" type="submit" class="btn btn-info">Comment</button> -->
+          <!-- <button (click)="getComments(c._id)" class="btn btn-info">Show Comments</button> -->
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <!-- <div *ngIf="flag">
+    <form (ngSubmit)="commentOnComic()">
+      <div class="form-group">
+        <label for="exampleTextarea">Share your views</label>
+        <textarea class="form-control" [(ngModel)]="newComment.comment" name="comment" id="exampleTextarea" rows="3"></textarea>
+      </div>
+      <input type="submit" name="submit">
+    </form>
+  </div>
+
+
+
+  <div *ngIf="comments">
+    <h3 style="text-align:center">Comments</h3>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>UserName</th>
+          <th>Comment</th>
+          <th>Date</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let c of comments">
+          <td>{{c.name}}</td>
+          <td>{{c.comment}}</td>
+          <td>{{c.createddate}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div> -->
+
+</div>
+<div class="footer">
+  <app-footer></app-footer>
+</div>

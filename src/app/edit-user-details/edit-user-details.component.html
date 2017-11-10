@@ -1,0 +1,24 @@
+<app-header-login></app-header-login>
+<br><br><br><br>
+<form (ngSubmit)="editDetails()">
+    
+          <input required type="text" name="name" [(ngModel)]="Newuser.name"  placeholder="New name" class="form-control">
+          <input required type="password" name="password" [(ngModel)]="Newuser.password"  placeholder="Password"
+            class="form-control">
+          <input required type="email" name="email" [(ngModel)]="Newuser.email"  placeholder="Email" class="form-control">
+          <input required type="text" name="phone_number" [(ngModel)]="Newuser.phoneNumber"  placeholder="phoneNumber"
+            class="form-control">
+          <div class="row">
+            <div class="col-sm-4">
+            </div>
+            <div class="col-sm-2">
+              <button type="submit" class="btn btn-success">Register Me!</button>
+            </div>
+            <div class="col-sm-5">
+            </div>
+          </div>
+   </form>
+
+   <div class="footer">
+      <app-footer></app-footer>
+     </div>

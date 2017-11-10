@@ -1,0 +1,113 @@
+<app-header-login></app-header-login>
+<div class="row">
+    <h1 style="text-align:center"> Welcome Super Admin </h1>
+</div>
+<div class="row">
+    <div class="col-sm-6" id="buttons">
+        <!-- <div *ngIf="!flag">
+            <button type="button" (click)="add()" class="btn btn-outline-primary">Add user</button>
+        </div> -->
+    </div>
+    <div class="col-sm-6" id="buttons">
+        <div *ngIf="!users">
+            <button type="`button" (click)="getUsers()" class="btn btn-outline-primary">Show users</button>
+        </div>
+    </div>
+</div>
+<!-- <div *ngIf="flag"> -->
+<form (ngSubmit)="addUser()" [formGroup]="user">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-6 col-md-4 col-md-offset-4">
+                <h1 class="text-center login-title">Add</h1>
+                <div class="account-wall">
+                    <div class="form-group">
+                        <input type="text" placeholder="Enter name" formControlName="name" class="form-control">
+                        <div class="check" *ngIf="showError && user.controls['name'].hasError('minlength')">enter name of atleast 3 charcaters</div>
+                        <div class="check" *ngIf="showError && user.controls['name'].hasError('maxlength')">enter name of maximum 99</div>
+                        <div class="check" *ngIf="showError && user.controls['name'].hasError('pattern')">enter proper name</div>
+                        <div class="check" *ngIf="showError && user.controls['name'].hasError('required')">enter name</div>                        
+                        <input type="email" placeholder="Enter email" formControlName="email" class="form-control">
+                        <div class="check" *ngIf="showError && user.controls['email'].hasError('pattern')">enter proper email</div>
+                        <input type="password" placeholder="Enter password" formControlName="password" class="form-control">
+                        <div class="check" *ngIf="showError && user.controls['password'].hasError('minlength')">chooswe a password of atleast 6 digits</div>
+                        <div class="check" *ngIf="showError && user.controls['password'].hasError('maxlength')">maximum 20 characters</div>
+                        <input type="text" placeholder="Enter your contact number" formControlName="phoneNumber" class="form-control">
+                        <div class="check" *ngIf="showError && user.controls['phoneNumber'].hasError('pattern')">enter proper number starting with 7, 8 or 9</div>
+                        <select formControlName="userType" class="form-control">
+                            <option value="1" ngDefaultControl>Superadmin</option>
+                            <option value="2" ngDefaultControl>Admin</option>
+                            <option value="3" ngDefaultControl>User</option>
+                        </select>
+                        <button type="submit" [routerLink]="['/superadmin']" class="btn btn-success">Add</button>
+                </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+<!-- </div> -->
+
+<div class="usersdisplay">
+    <div *ngIf="users">
+        <div class="col-sm-12"></div>
+        <table style="width:100%">
+            <tr>
+                <th>Email</th>
+                <th>Password</th>
+                <th>Name</th>
+                <th>User Type</th>
+                <th>Phone Number</th>
+                <!-- <th>Last Update Date</th> -->
+            </tr>
+            <br>
+            <tr *ngFor="let user of users;">
+                <td>{{user.email}}</td>
+                <td>{{user.password}}</td>
+                <td>{{user.name}}</td>
+                <td>{{user.userType}}</td>
+                <td>{{user.phoneNumber}}</td>
+                <!-- <td>{{user.updateddate}}</td> -->
+                <br>
+                <button (click)="edit(user._id)" type="submit" class="btn btn-info">Edit</button>
+                <button class="btn btn-info" (click)="DeleteUser(user._id)">delete</button>
+            </tr>
+        </table>
+    </div>
+    <div *ngIf="flagEdit">
+        <form (ngSubmit)="editDetails()" [formGroup]="userUpdate">
+            <div class="container">
+                <div class="form-group">
+                    <div class="row">
+                        <div class="col-sm-6 col-md-4 col-md-offset-4">
+                            <h1 class="text-center login-title">Edit</h1>
+                            <div class="account-wall">
+                                <input type="text" placeholder="Enter new name" formControlName="name" class="form-control">
+                                <div class="check" *ngIf="user.controls['name'].hasError('minlength')">enter name of atleast 3 charcaters</div>
+                                <div class="check" *ngIf="user.controls['name'].hasError('maxlength')">enter name of maximum 99</div>
+                                <div class="check" *ngIf="user.controls['name'].hasError('pattern')">enter proper name</div>
+                                <input type="email" placeholder="Enter new email" formControlName="email" class="form-control">
+                                <div class="check" *ngIf="user.controls['email'].hasError('pattern')">enter proper email</div>
+                                <input type="password" placeholder="Enter new password" formControlName="password" class="form-control">
+                                <div class="check" *ngIf="user.controls['password'].hasError('minlength')">chooswe a password of atleast 6 digits</div>
+                                <div class="check" *ngIf="user.controls['password'].hasError('maxlength')">maximum 20 characters</div>
+                                <input type="text" placeholder="Enter new number" formControlName="phoneNumber" class="form-control">
+                                <div class="check" *ngIf="user.controls['phoneNumber'].hasError('pattern')">enter proper number starting with 7, 8 or 9</div>
+                                <select formControlName="userType" class="form-control">
+                                    <option value="1" ngDefaultControl>Superadmin</option>
+                                    <option value="2" ngDefaultControl>Admin</option>
+                                    <option value="3" ngDefaultControl>User</option>
+                                </select>
+                                <button type="button" (click)="cancel()" class="btn btn-info">Cancel</button>
+                                <button type="submit" [routerLink]="['/superadmin']" class="btn btn-success">Update</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+<div class="footer">
+    <app-footer></app-footer>
+</div>

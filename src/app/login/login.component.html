@@ -1,0 +1,37 @@
+<app-header></app-header>
+
+<div class="container">
+  <br><br>
+  <div class="row">
+    <div class="col-sm-2"></div>
+    <div class="col-lg-8 col-md-7 col-sm-6">
+      <div class="panel panel-default">
+        <div class="panel-heading text-center">Sign in with our Awesome Application</div>
+        <div class="panel-body" align="center">
+          <a class="btn btn-social btn-facebook" (click)="fbLogin()">
+            <span class="fa fa-facebook"></span> Facebook
+          </a>
+        </div>
+      </div>
+      <br>
+    </div>
+  </div>
+  <div class="row">
+      <div class="col-sm-2"></div>
+    <div class="col-lg-8 col-md-7 col-sm-6">
+      <div class="panel panel-default">
+        <div class="panel-heading text-center">Sign in with our Awesome Application</div>
+        <div class="panel-body" align="center">
+          <a [routerLink]="['/userlogin']" routerlinkActive = "active" class="btn btn-social btn-facebook">
+            <span class="fa fa-facebook"></span>User Login </a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
+<div class="footer">
+  <app-footer></app-footer>
+</div>

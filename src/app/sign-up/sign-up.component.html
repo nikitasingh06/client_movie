@@ -1,0 +1,25 @@
+<app-header></app-header>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-6 col-md-4 col-md-offset-4">
+                <h1 class="text-center login-title">SignUp</h1>
+                <div class="account-wall">
+                    <form class="form-signin" (ngSubmit)="registerUser()">
+                        <input type="text" class="form-control" placeholder="Enter name" name="name" [(ngModel)]="Newuser.name">
+                        <span>{{nameEr}}</span>
+                        <input type="email" class="form-control" placeholder="Enter email" name="email" [(ngModel)]="Newuser.email">
+                        <span>{{emailEr}}</span>
+                        <input type="password" class="form-control" placeholder="Enter password" name="password" [(ngModel)]="Newuser.password">
+                        <span>{{passEr}}</span>
+                        <input type="text" class="form-control" placeholder="Enter your contact number" name="phoneNumber" [(ngModel)]="Newuser.phoneNumber">
+                        <span>{{cnEr}}</span>
+                        <button type="button" (click)="cancel()" class="btn btn-info">Cancel</button>
+                        <button type="submit" (click)="signup()" class="btn btn-info">Submit</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+<div class="footer">
+    <app-footer></app-footer>
+</div>

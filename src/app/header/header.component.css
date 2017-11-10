@@ -1,0 +1,20 @@
+.ls{
+    text-align: right;
+
+    
+}
+
+.navbar-brand{
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+.navbar{
+    background-color: lightgrey;
+    color: white;
+}
+
+.co{
+    color: black;
+    font-weight: bold;
+}
